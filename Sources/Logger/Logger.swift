@@ -47,20 +47,20 @@ public struct Logger {
         self.logLevel = logLevel
     }
     
-    public func fromInt(_ logLevelInteger: Int) -> LogLevel {
-        switch logLevelInteger {
+    public init(_ logLevel: Int) {
+        switch logLevel {
         case 1:
-            return .ERROR
+            self.logLevel = .ERROR
         case 2:
-            return .WARNING
+            self.logLevel = .WARNING
         case 3:
-            return .INFO
+            self.logLevel = .INFO
         case 4:
-            return .DEBUG
+            self.logLevel = .DEBUG
         case 5:
-            return .TRACE
+            self.logLevel = .TRACE
         default:
-            return .INFO
+            self.logLevel = .INFO
         }
     }
 }
