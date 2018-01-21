@@ -8,6 +8,23 @@ public enum LogLevel: Int {
     case INFO = 3
     case DEBUG = 4
     case TRACE = 5
+    
+    public func fromInt(_ logLevelInteger: Int) -> LogLevel {
+        switch logLevelInteger {
+        case 1:
+            return .ERROR
+        case 2:
+            return .WARNING
+        case 3:
+            return .INFO
+        case 4:
+            return .DEBUG
+        case 5:
+            return .TRACE
+        default:
+            return .INFO
+        }
+    }
 }
 
 public struct Logger {
