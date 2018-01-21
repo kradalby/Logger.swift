@@ -2,12 +2,12 @@ import Foundation
 
 import Rainbow
 
-public enum LogLevel {
-    case ERROR
-    case WARNING
-    case INFO
-    case DEBUG
-    case TRACE
+public enum LogLevel: Int {
+    case ERROR = 1
+    case WARNING = 2
+    case INFO = 3
+    case DEBUG = 4
+    case TRACE = 5
 }
 
 public struct Logger {
@@ -17,28 +17,22 @@ public struct Logger {
         print("[ERROR] ".red + "\(message)")
     }
     public func warning(_ message: Any) {
-        if logLevel == .TRACE ||
-            logLevel == .DEBUG ||
-            logLevel == .INFO ||
-            logLevel == .WARNING {
+        if logLevel.rawValue >= 2 {
         print("[WARNING] ".yellow + "\(message)")
         }
     }
     public func info(_ message: Any) {
-        if logLevel == .TRACE ||
-            logLevel == .DEBUG ||
-            logLevel == .INFO {
+        if logLevel.rawValue >= 3 {
         print("[INFO] ".green + "\(message)")
         }
     }
     public func debug(_ message: Any) {
-        if logLevel == .TRACE ||
-            logLevel == .DEBUG {
+        if logLevel.rawValue >= 4 {
             print("[DEBUG] ".lightCyan + "\(message)")
         }
     }
     public func trace(_ message: Any) {
-        if logLevel == .TRACE {
+        if logLevel.rawValue >= 5 {
             print("[TRACE] ".white + "\(message)")
         }
     }
