@@ -8,7 +8,6 @@
    "steps": [
       {
          "commands": [
-            "make test",
             "make build"
          ],
          "image": "swift:latest",
